@@ -3,6 +3,8 @@
 
 Este projeto é uma aplicação **NodeJS** que tem como objetivo mapear todos os dispositivos de um parque de iluminação pública pré-definido, coletar suas informações via o servidor **NLM Pro**, conectar-se aos concentradores do parque e solicitar dados de cada dispositivo. Isso possibilita a identificação de possíveis falhas e configurações incorretas.
 
+![Relatório](image.png)
+
 ---
 
 ## 📋 Requisitos
@@ -67,6 +69,6 @@ Após a geração do relatório, um arquivo **HTML** será criado e poderá ser 
 
 ## 👥 Contribuidores
 
-- [Seu Nome] - Trabalho inicial
+- [Wesley RIbeiro Barbosa] - Desenvolvimento e documentação.
 
 ---
