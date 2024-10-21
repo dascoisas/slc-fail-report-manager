@@ -422,19 +422,28 @@ async function main() {
 
             if (gateway) {
                 const n_switches = await makeRequestSwitches(gateway, ipv6);
-                updatedFinalData[i].switches = n_switches === "ERROR" ? "ERROR" : n_switches;
 
-                const lamp_mode = await makeRequestMode(gateway, ipv6);
-                updatedFinalData[i].mode = lamp_mode === "ERROR" ? "ERROR" : lamp_mode;
+                if (n_switches !== "ERROR") {
+                    updatedFinalData[i].switches = n_switches;
 
-                const coords = await makeRequestCoords(gateway, ipv6);
-                updatedFinalData[i].coords = coords === "ERROR" ? "ERROR" : coords;
-
-                const activetime = await makeRequestActivetime(gateway, ipv6);
-                updatedFinalData[i].activetime = coords === "ERROR" ? "ERROR" : activetime;
-
-                const fwversion = await makeRequestFwversion(gateway, ipv6);
-                updatedFinalData[i].fwversion = coords === "ERROR" ? "ERROR" : fwversion;
+                    const lamp_mode = await makeRequestMode(gateway, ipv6);
+                    updatedFinalData[i].mode = lamp_mode === "ERROR" ? "ERROR" : lamp_mode;
+    
+                    const coords = await makeRequestCoords(gateway, ipv6);
+                    updatedFinalData[i].coords = coords === "ERROR" ? "ERROR" : coords;
+    
+                    const activetime = await makeRequestActivetime(gateway, ipv6);
+                    updatedFinalData[i].activetime = activetime === "ERROR" ? "ERROR" : activetime;
+    
+                    const fwversion = await makeRequestFwversion(gateway, ipv6);
+                    updatedFinalData[i].fwversion = fwversion === "ERROR" ? "ERROR" : fwversion;
+                } else {
+                    updatedFinalData[i].switches = "ERROR";
+                    updatedFinalData[i].mode = "ERROR";
+                    updatedFinalData[i].coords = "ERROR";
+                    updatedFinalData[i].activetime = "ERROR";
+                    updatedFinalData[i].fwversion = "ERROR";
+                };
             }
         }
 
